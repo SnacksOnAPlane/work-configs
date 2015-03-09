@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+#
+# The argument is hte tag to move to HEAD
+git tag -d $1
+git push origin :$1
+git tag $1
+git push origin $1
+
+echo "Run the following command on the environment to redeploy:\n"
+echo "sudo chef-client -j /etc/chef/chef.default.json"
